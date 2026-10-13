@@ -1,4 +1,4 @@
-# vp-gitkraken-hook-repro
+# repro-vite-plus-gitkraken-hook
 
 Minimal repository to examine a report that a Vite+ Git hook fails only when
 the commit is made from GitKraken.
