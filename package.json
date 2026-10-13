@@ -1,0 +1,12 @@
+{
+  "name": "vp-gitkraken-hook-repro",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "prepare": "vp config"
+  },
+  "devDependencies": {
+    "vite-plus": "1.1.0"
+  },
+  "packageManager": "pnpm@10.18.2"
+}
