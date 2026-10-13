@@ -1,1 +1,10 @@
+# Diagnostics: show the environment that the Git client gives to the hook.
+{
+  echo "[repro] PATH=$PATH"
+  echo "[repro] HOME=${HOME-} VP_HOME=${VP_HOME-} SHELL=${SHELL-}"
+  echo "[repro] node=$(command -v node || echo 'not found')"
+  echo "[repro] vp=$(command -v vp || echo 'not found')"
+  echo "[repro] git=$(command -v git || echo 'not found') ($(git --version 2>/dev/null))"
+} >&2
+
 vp staged
