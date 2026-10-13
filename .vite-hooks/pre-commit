@@ -1,10 +1,13 @@
 # Diagnostics: show the environment that the Git client gives to the hook.
+# The same lines go to .git/repro-hook.log, because a GUI client can hide the
+# output of a hook that passes.
 {
+  echo "[repro] --- $(date '+%Y-%m-%d %H:%M:%S')"
   echo "[repro] PATH=$PATH"
   echo "[repro] HOME=${HOME-} VP_HOME=${VP_HOME-} SHELL=${SHELL-}"
   echo "[repro] node=$(command -v node || echo 'not found')"
   echo "[repro] vp=$(command -v vp || echo 'not found')"
   echo "[repro] git=$(command -v git || echo 'not found') ($(git --version 2>/dev/null))"
-} >&2
+} 2>&1 | tee -a "$(git rev-parse --git-dir)/repro-hook.log" >&2
 
 vp staged
